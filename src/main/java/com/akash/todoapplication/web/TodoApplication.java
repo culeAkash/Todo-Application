@@ -1,4 +1,4 @@
-package com.akash.web.todoapplication;
+package com.akash.todoapplication.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
