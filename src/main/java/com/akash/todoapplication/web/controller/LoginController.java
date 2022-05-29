@@ -2,16 +2,15 @@ package com.akash.todoapplication.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class LoginController {
 
 	// /login => "Hello World"
 	@RequestMapping(value = "/login")
-	@ResponseBody
+//	@ResponseBody=> used to print the exact return value as response tto the browser
 	public String LoginMessage() {
-		return "Hello World";
+		return "login";
 	}
 }
 
