@@ -1,14 +1,20 @@
 package com.akash.todoapplication.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.akash.todoapplication.web.service.LoginService;
+
 @Controller
 public class LoginController {
 
+	// Dependency injection
+	@Autowired
+	LoginService service;
 	// /login => "Hello World"
 //	@ResponseBody
 	// => used to print the exact return value as response tto the browser
@@ -26,6 +32,11 @@ public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST) // handles post request
 	public String LoginMessagePost(@RequestParam String name, @RequestParam String password, ModelMap model) {
+		boolean isValidUser = this.service.validateUser(name, password);
+		if (!isValidUser) {
+			model.put("errorMessage", "Invalid Credentials");
+			return "/login";
+		}
 		model.put("name", name);
 		model.put("password", password);
 		return "welcome";

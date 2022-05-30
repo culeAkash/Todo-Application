@@ -7,7 +7,7 @@
 <title>Todo App</title>
 </head>
 <body>
- 	Welcome ${name}
+ 	<font color="red">${errorMessage}</font>
  	<form action="/login" method="post"> <!--If we dont give method it will judge it as a get request-->
  		<label for="name">Username: </label>
  		<input name="name" type="text"/>
