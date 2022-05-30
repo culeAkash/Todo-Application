@@ -7,6 +7,6 @@
 <title>Todo App</title>
 </head>
 <body>
-	My first jsp
+ 	Welcome ${name}
 </body>
 </html>
